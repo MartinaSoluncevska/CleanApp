@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/activity_margin">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/title"
+        android:text="What do you own at home?"/>
+
+    <LinearLayout
+        android:id="@+id/checklist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@id/title"
+        android:layout_marginTop="@dimen/activity_margin">
+
+        <CheckBox
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/checkbox"
+            android:text="Fridge"/>
+
+        <CheckBox
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/checkbox"
+            android:text="Microwave"/>
+        <CheckBox
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/checkbox"
+            android:text="Oven"/>
+        <CheckBox
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/checkbox"
+            android:text="Washing machine"/>
+        <CheckBox
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/checkbox"
+            android:text="TV"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btncontinue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/confirmButton"
+        android:layout_below="@id/checklist"
+        android:layout_marginTop="50dp"
+        android:text="OK"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_margin"
+        android:gravity="center"
+        android:layout_alignParentBottom="true">
+
+        <ImageView
+            android:src="@drawable/ic_greycircle"
+            style="@style/bottomList"/>
+
+        <ImageView
+            android:src="@drawable/ic_greycircle"
+            style="@style/bottomList"/>
+
+        <ImageView
+            android:src="@drawable/ic_circle"
+            style="@style/bottomList"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

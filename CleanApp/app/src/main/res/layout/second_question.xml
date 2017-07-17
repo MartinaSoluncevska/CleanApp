@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="@dimen/activity_margin"
+    android:layout_marginBottom="@dimen/activity_margin"
+    android:layout_marginLeft="@dimen/activity_margin"
+    android:layout_marginRight="@dimen/activity_margin">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/title"
+        android:text="What hjsawhwrbf "/>
+
+    <TextView
+        android:id="@+id/subtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_small"
+        android:layout_below="@id/title"
+        android:text="Put your grade 1-5, where 5 is for big and 1 for small."/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/subtitle"
+        android:paddingTop="50dp">
+
+        <Button android:id="@+id/btn5"
+            style="@style/button"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/margin_small"
+            android:text="5"/>
+
+        <Button android:id="@+id/btn4"
+            style="@style/button"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/margin_small"
+            android:text="4"/>
+
+        <Button android:id="@+id/btn3"
+            style="@style/button"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/margin_small"
+            android:text="3"/>
+
+        <Button android:id="@+id/btn2"
+            style="@style/button"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/margin_small"
+            android:text="2"/>
+
+        <Button android:id="@+id/btn1"
+            style="@style/button"
+            android:layout_height="wrap_content"
+            android:text="1"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_margin"
+        android:gravity="center"
+        android:layout_alignParentBottom="true">
+
+        <ImageView
+            android:src="@drawable/ic_greycircle"
+            style="@style/bottomList"/>
+
+        <ImageView
+            android:src="@drawable/ic_circle"
+            style="@style/bottomList"/>
+
+        <ImageView
+            android:src="@drawable/ic_greycircle"
+            style="@style/bottomList"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
