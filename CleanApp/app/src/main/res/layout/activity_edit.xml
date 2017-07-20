@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/activity_margin"
+    tools:context=".EditActivity">
+
+    <LinearLayout
+        android:id="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/CategoryStyle"
+            android:text="Add a task:" />
+
+        <EditText
+            android:id="@+id/edit_name"
+            style="@style/EditorFieldStyle"
+            android:inputType="text"
+            android:hint="@string/hint_task_name"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/subtop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:orientation="vertical"
+        android:layout_below="@id/top">
+
+        <TextView
+            style="@style/CategoryStyle"
+            android:text="Frequency:" />
+
+        <Spinner
+            android:id="@+id/spinner1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/btn_dropdown"
+            android:spinnerMode="dropdown" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/subbottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:orientation="vertical"
+        android:layout_below="@id/subtop">
+
+        <TextView
+            style="@style/CategoryStyle"
+            android:text="Choose day:" />
+
+        <Spinner
+            android:id="@+id/spinner2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/btn_dropdown"
+            android:spinnerMode="dropdown" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:orientation="vertical"
+        android:layout_below="@id/subbottom">
+
+        <TextView
+            style="@style/CategoryStyle"
+            android:text="Information" />
+
+        <EditText
+            android:id="@+id/edit_left"
+            style="@style/EditorFieldStyle"
+            android:inputType="text"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:weightSum="2"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/bottom"
+        android:paddingTop="@dimen/activity_margin"  >
+
+        <Button
+            android:id="@+id/btncancel"
+            style="@style/EditorButtonStyle"
+            android:text="CANCEL"
+            android:textColor="@color/colorPrimary"
+            android:background="@color/colorWhite"
+            android:layout_marginRight="@dimen/activity_margin"
+            />
+
+        <Button
+            android:id="@+id/btnadd"
+            style="@style/EditorButtonStyle"
+            android:text="ADD"
+            android:textColor="@color/colorWhite"
+            android:background="@color/colorPrimary"
+/>
+    </LinearLayout>
+
+</RelativeLayout>

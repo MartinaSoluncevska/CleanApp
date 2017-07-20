@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/nav_menu">
+
+    <group android:id="@+id/menu_top">
+        <item
+            android:layout_marginLeft="@dimen/activity_margin"
+            android:id="@+id/nav_dashboard"
+            android:icon="@mipmap/ic_dns_black_24dp"
+            android:title="Dashboard">
+
+        </item>
+    </group>
+    <group android:id="@+id/menu_sub">
+        <item
+            android:layout_marginLeft="@dimen/activity_margin"
+            android:id="@+id/nav_todo"
+            android:icon="@mipmap/ic_done_black_24dp"
+            android:title="Tasks to be done">
+
+        </item>
+        <item
+            android:layout_marginLeft="@dimen/activity_margin"
+            android:id="@+id/nav_list"
+            android:icon="@mipmap/ic_list_black_24dp"
+            android:title="List of tasks">
+
+        </item>
+    </group>
+    <group android:id="@+id/menu_almost">
+        <item
+            android:layout_marginLeft="@dimen/activity_margin"
+            android:id="@+id/nav_achieve"
+            android:icon="@mipmap/ic_cloud_done_black_24dp"
+            android:title="Achievements">
+
+        </item>
+        <item
+            android:layout_marginLeft="@dimen/activity_margin"
+            android:id="@+id/nav_collect"
+            android:icon="@mipmap/ic_favorite_border_black_24dp"
+            android:title="Collections">
+
+        </item>
+    </group>
+    <group android:id="@+id/menu_bottom">
+        <item
+            android:layout_marginLeft="@dimen/activity_margin"
+            android:id="@+id/nav_setup"
+            android:icon="@mipmap/ic_settings_black_24dp"
+            android:title="Settings">
+        </item>
+    </group>
+</menu>

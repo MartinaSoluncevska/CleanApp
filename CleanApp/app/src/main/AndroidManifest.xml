@@ -31,6 +31,10 @@
             android:label="CleanApp"
             android:name=".TasksActivity">
         </activity>
+        <activity
+            android:label="CleanApp"
+            android:name=".EditActivity">
+        </activity>
 
     </application>
 

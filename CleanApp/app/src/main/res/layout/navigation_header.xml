@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/background_light"
+    android:paddingTop="@dimen/activity_margin"
+    android:paddingBottom="@dimen/activity_margin"
+    android:paddingLeft="@dimen/activity_margin"
+    >
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        app:srcCompat="@mipmap/ic_launcher_round"
+        android:layout_centerVertical="true" />
+
+    <TextView
+        android:id="@+id/name_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/imageView"
+        android:paddingTop="@dimen/activity_margin"
+        android:paddingLeft="10dp"
+        android:text="Name"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/email_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/imageView"
+        android:paddingTop="@dimen/margin_small"
+        android:paddingLeft="10dp"
+        android:paddingBottom="@dimen/activity_margin"
+        android:layout_below="@+id/name_title"
+        android:text="something@gmail.com"
+        android:textSize="14dp" />
+
+</RelativeLayout>
