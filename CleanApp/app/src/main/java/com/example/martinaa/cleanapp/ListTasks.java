@@ -8,17 +8,18 @@ import java.util.List;
  */
 
 public class ListTasks implements Serializable{
+    public int id;
     public String bigtext;
     public String smalltext;
     public String time;
     public boolean isChecked;
 
 
-    public ListTasks(String bigtext, String smalltext, String time, boolean isChecked) {
+    public ListTasks(int id, String bigtext, String smalltext, String time) {
+        this.id=id;
         this.bigtext = bigtext;
         this.smalltext = smalltext;
         this.time = time;
-        this.isChecked = isChecked;
     }
 
     public void setSelected(boolean selected) {

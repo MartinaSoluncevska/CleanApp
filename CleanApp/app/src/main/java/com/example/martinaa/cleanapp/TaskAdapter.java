@@ -9,6 +9,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -16,24 +17,25 @@ import java.util.List;
  * Created by martinaa on 17/07/2017.
  */
 
-public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder>{
-    List<ListTasks> list = Collections.emptyList();
+public class TaskAdapter extends RecyclerView.Adapter<TaskHolder>{
+
+    ArrayList<ListTasks> list;
     Context context;
 
-    public TaskAdapter(List<ListTasks> list, Context context){
-        this.list = list;
+    public TaskAdapter(Context context, ArrayList<ListTasks> list) {
         this.context = context;
+        this.list = list;
     }
 
     @Override
-    public TaskAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public TaskHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.single_task, parent, false);
-        MyViewHolder holder = new MyViewHolder(v);
+        TaskHolder holder = new TaskHolder(v);
         return holder;
     }
 
     @Override
-    public void onBindViewHolder(TaskAdapter.MyViewHolder holder, final int position) {
+    public void onBindViewHolder(TaskHolder holder, final int position) {
         holder.one.setText(list.get(position).bigtext);
         holder.two.setText(list.get(position).smalltext);
         holder.three.setText(list.get(position).time);
@@ -64,18 +66,4 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder>{
         return list.size();
     }
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView one;
-        public TextView two;
-        public TextView three;
-        public Switch swSelected;
-
-        public MyViewHolder(View itemView) {
-            super(itemView);
-            one = (TextView) itemView.findViewById(R.id.bigtext);
-            two = (TextView) itemView.findViewById(R.id.smallertext);
-            three = (TextView) itemView.findViewById(R.id.timetext);
-            swSelected = (Switch) itemView.findViewById(R.id.switch_btn);
-        }
-    }
 }
