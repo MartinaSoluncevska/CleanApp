@@ -74,4 +74,19 @@
         <item name="android:padding">@dimen/activity_margin</item>
     </style>
 
+    <style name="SpinnerStyle">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginTop">@dimen/activity_margin</item>
+        <item name="android:spinnerMode">dropdown</item>
+    </style>
+
+    <style name="SortStyle">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:padding">@dimen/border_margin</item>
+        <item name="android:spinnerMode">dropdown</item>
+    </style>
+
 </resources>

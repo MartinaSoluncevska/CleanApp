@@ -1,6 +1,7 @@
 package com.example.martinaa.cleanapp;
 
 import java.io.Serializable;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -15,7 +16,7 @@ public class ListTasks implements Serializable{
     public boolean isChecked;
 
 
-    public ListTasks(int id, String bigtext, String smalltext, String time) {
+    public ListTasks(int id, String bigtext, String smalltext, String time, String information) {
         this.id=id;
         this.bigtext = bigtext;
         this.smalltext = smalltext;
@@ -25,4 +26,11 @@ public class ListTasks implements Serializable{
     public void setSelected(boolean selected) {
         this.isChecked = selected;
     }
+
+    public static final Comparator<ListTasks> BY_DATE = new Comparator<ListTasks>() {
+        @Override
+        public int compare(ListTasks o1, ListTasks o2) {
+            return o1.time.compareTo(o2.time);
+        }
+    };
 }

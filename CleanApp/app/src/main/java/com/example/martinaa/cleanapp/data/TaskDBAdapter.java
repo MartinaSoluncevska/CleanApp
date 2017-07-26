@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.text.TextUtils;
 
 import com.example.martinaa.cleanapp.data.TaskHelper.Tasks;
 /**
@@ -41,6 +42,10 @@ public class TaskDBAdapter {
     }
 
     public long addData(String name, String timetodo, String timeleft) {
+        if (TextUtils.isEmpty(name)) {
+            return 0;
+        }
+
         try{
             ContentValues contentValues = new ContentValues();
             contentValues.put(TaskHelper.Tasks.COLUMN_TASK_NAME, name);

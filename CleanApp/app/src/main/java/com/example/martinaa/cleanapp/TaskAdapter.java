@@ -27,6 +27,9 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskHolder>{
         this.list = list;
     }
 
+    public static final int ITEM_TYPE_NORMAL = 0;
+    public static final int ITEM_TYPE_TODO = 1;
+
     @Override
     public TaskHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.single_task, parent, false);

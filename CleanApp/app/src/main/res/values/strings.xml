@@ -3,5 +3,31 @@
     <string name="open">Open</string>
     <string name="close">Close</string>
     <string name="hint_task_name">Title of the task</string>
+    <string name="spinner_name">Every</string>
+
+    <string-array name="time">
+        <item>days</item>
+        <item>week</item>
+        <item>months</item>
+    </string-array>
+
+    <string-array name="left">
+        <item>1 week</item>
+        <item>1 month</item>
+        <item>1 year</item>
+    </string-array>
+
+    <string-array name="categories">
+        <item>All categories</item>
+        <item>Kitchen</item>
+        <item>Bathroom</item>
+    </string-array>
+
+    <string-array name="sort_list">
+        <item>Sort: left</item>
+        <item>days</item>
+        <item>weeks</item>
+        <item>months</item>
+    </string-array>
 
 </resources>

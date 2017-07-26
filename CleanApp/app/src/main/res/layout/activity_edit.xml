@@ -6,113 +6,119 @@
     card_view:cardCornerRadius="10dp"
     card_view:cardElevation="5dp">
 
-<RelativeLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:padding="@dimen/activity_margin" >
-
-    <LinearLayout
-        android:id="@+id/top"
-        android:layout_width="match_parent"
+    <RelativeLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:padding="@dimen/activity_margin">
 
-        <TextView
-            style="@style/CategoryStyle"
-            android:text="Add a task:" />
-
-        <EditText
-            android:id="@+id/edit_name"
-            style="@style/EditorFieldStyle"
-            android:inputType="text"
-            android:hint="@string/hint_task_name"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/subtop"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="vertical"
-        android:layout_below="@id/top">
-
-        <TextView
-            style="@style/CategoryStyle"
-            android:text="Frequency:" />
-
-        <EditText
-            android:id="@+id/edit_time"
+        <LinearLayout
+            android:id="@+id/top"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            />
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <TextView
+                style="@style/CategoryStyle"
+                android:text="Add a task:" />
 
-    <LinearLayout
-        android:id="@+id/subbottom"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="vertical"
-        android:layout_below="@id/subtop">
+            <EditText
+                android:id="@+id/edit_name"
+                style="@style/EditorFieldStyle"
+                android:hint="@string/hint_task_name"
+                android:inputType="text" />
 
-        <TextView
-            style="@style/CategoryStyle"
-            android:text="Choose day:" />
+        </LinearLayout>
 
-        <Spinner
-            android:id="@+id/spinner2"
+        <LinearLayout
+            android:id="@+id/subtop"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:drawable/btn_dropdown"
-            android:spinnerMode="dropdown" />
+            android:layout_below="@id/top"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <TextView
+                style="@style/CategoryStyle"
+                android:text="Frequency:" />
 
-    <LinearLayout
-        android:id="@+id/bottom"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="vertical"
-        android:layout_below="@id/subbottom">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <TextView
-            style="@style/CategoryStyle"
-            android:text="Information" />
+                <EditText
+                    android:id="@+id/every_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/border_margin"
+                    android:paddingTop="@dimen/margin_small"
+                    android:text="@string/spinner_name"/>
+                <Spinner
+                    android:id="@+id/edit_time"
+                    style="@style/SpinnerStyle" />
+            </LinearLayout>
 
-        <EditText
-            android:id="@+id/edit_left"
-            style="@style/EditorFieldStyle"
-            android:inputType="text"/>
 
-    </LinearLayout>
+        </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:weightSum="2"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/bottom"
-        android:paddingTop="@dimen/activity_margin"  >
+        <LinearLayout
+            android:id="@+id/subbottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/subtop"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btncancel"
-            style="@style/EditorButtonStyle"
-            android:text="CANCEL"
-            android:textColor="@color/colorPrimary"
-            android:background="@color/colorWhite"
-            android:layout_marginRight="@dimen/activity_margin"
-            />
+            <TextView
+                style="@style/CategoryStyle"
+                android:text="Choose when:" />
 
-        <Button
-            android:id="@+id/btnadd"
-            style="@style/EditorButtonStyle"
-            android:text="ADD"
-            android:textColor="@color/colorWhite"
-            android:background="@color/colorPrimary"
-/>
-    </LinearLayout>
+            <Spinner
+                android:id="@+id/edit_left"
+                style="@style/SpinnerStyle" />
 
-</RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/subbottom"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/CategoryStyle"
+                android:text="Information" />
+
+            <EditText
+                android:id="@+id/edit_how"
+                style="@style/EditorFieldStyle"
+                android:inputType="text" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/bottom"
+            android:paddingTop="@dimen/activity_margin"
+            android:weightSum="2">
+
+            <Button
+                android:id="@+id/btncancel"
+                style="@style/EditorButtonStyle"
+                android:layout_marginRight="@dimen/activity_margin"
+                android:background="@color/colorWhite"
+                android:text="CANCEL"
+                android:textColor="@color/colorPrimary" />
+
+            <Button
+                android:id="@+id/btnadd"
+                style="@style/EditorButtonStyle"
+                android:background="@color/colorPrimary"
+                android:text="ADD"
+                android:textColor="@color/colorWhite" />
+        </LinearLayout>
+
+    </RelativeLayout>
 </android.support.v7.widget.CardView>

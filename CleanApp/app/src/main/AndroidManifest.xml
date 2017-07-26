@@ -31,7 +31,10 @@
             android:label="CleanApp"
             android:name=".TasksActivity">
         </activity>
-
+        <activity
+            android:label="CleanApp"
+            android:name=".ToBeDoneActivity">
+        </activity>
     </application>
 
 </manifest>

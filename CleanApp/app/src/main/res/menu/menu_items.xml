@@ -8,7 +8,6 @@
             android:id="@+id/nav_dashboard"
             android:icon="@mipmap/ic_dns_black_24dp"
             android:title="Dashboard">
-
         </item>
     </group>
     <group android:id="@+id/menu_sub">
@@ -17,14 +16,12 @@
             android:id="@+id/nav_todo"
             android:icon="@mipmap/ic_done_black_24dp"
             android:title="Tasks to be done">
-
         </item>
         <item
             android:layout_marginLeft="@dimen/activity_margin"
             android:id="@+id/nav_list"
             android:icon="@mipmap/ic_list_black_24dp"
-            android:title="List of tasks">
-
+            android:title="To do list" >
         </item>
     </group>
     <group android:id="@+id/menu_almost">
@@ -33,14 +30,12 @@
             android:id="@+id/nav_achieve"
             android:icon="@mipmap/ic_cloud_done_black_24dp"
             android:title="Achievements">
-
         </item>
         <item
             android:layout_marginLeft="@dimen/activity_margin"
             android:id="@+id/nav_collect"
             android:icon="@mipmap/ic_favorite_border_black_24dp"
             android:title="Collections">
-
         </item>
     </group>
     <group android:id="@+id/menu_bottom">
