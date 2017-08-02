@@ -1,5 +1,7 @@
 package com.example.martinaa.cleanapp;
 
+import android.widget.Button;
+
 import java.io.Serializable;
 import java.util.Comparator;
 import java.util.List;
@@ -13,14 +15,21 @@ public class ListTasks implements Serializable{
     public String bigtext;
     public String smalltext;
     public String time;
+    public Button btn;
     public boolean isChecked;
-
+    public int layout_type;
 
     public ListTasks(int id, String bigtext, String smalltext, String time, String information) {
         this.id=id;
         this.bigtext = bigtext;
         this.smalltext = smalltext;
         this.time = time;
+    }
+
+    public ListTasks(int id, String bigtext, String smalltext) {
+        this.id=id;
+        this.bigtext = bigtext;
+        this.smalltext = smalltext;
     }
 
     public void setSelected(boolean selected) {
@@ -30,7 +39,7 @@ public class ListTasks implements Serializable{
     public static final Comparator<ListTasks> BY_DATE = new Comparator<ListTasks>() {
         @Override
         public int compare(ListTasks o1, ListTasks o2) {
-            return o1.time.compareTo(o2.time);
+            return o1.smalltext.compareTo(o2.smalltext);
         }
     };
 }

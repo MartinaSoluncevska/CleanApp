@@ -19,39 +19,32 @@
 
         <TextView
             android:id="@+id/bigtext"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="10dp"
-            android:text="txt"
-            android:textColor="#000000"
-            android:textSize="22dp" />
+            style="@style/bigTexts"/>
 
         <TextView
             android:id="@+id/smallertext"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/bigtext"
-            android:paddingLeft="12dp"
-            android:text="txt2" />
+            style="@style/smallTexts"
+            android:layout_below="@+id/bigtext"/>
+
+        <TextView
+            android:id="@+id/line"
+            style="@style/smallTexts"
+            android:layout_toRightOf="@id/smallertext"
+            android:layout_alignBaseline="@id/smallertext"
+            android:text="|"/>
 
         <TextView
             android:id="@+id/timetext"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/smallTexts"
             android:layout_below="@+id/bigtext"
-            android:layout_toRightOf="@id/smallertext"
-            android:paddingLeft="12dp"
-            android:text="txt3" />
+            android:layout_toRightOf="@id/line"/>
 
         <Switch
             android:id="@+id/switch_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/rightButton"
             android:layout_marginEnd="@dimen/activity_margin"
-            android:layout_centerVertical="true"
             android:checked="false"
             android:textOff="Done!"
-            android:textOn="Do it soon!"
-            android:layout_alignParentEnd="true" />
+            android:textOn="Do it soon!"/>
     </RelativeLayout>
 </android.support.v7.widget.CardView>

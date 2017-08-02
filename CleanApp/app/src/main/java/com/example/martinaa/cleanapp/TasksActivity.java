@@ -13,6 +13,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -31,7 +32,7 @@ import java.util.ArrayList;
 
 public class TasksActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
-    EditText title, every;
+    EditText title;
     Spinner info, something;
 
     private RecyclerView my_rview;
@@ -75,7 +76,14 @@ public class TasksActivity extends AppCompatActivity implements NavigationView.O
         my_rview = (RecyclerView) findViewById(R.id.recycler);
         my_manager = new LinearLayoutManager(this);
         my_rview.setLayoutManager(my_manager);
+
+        //style the border of each item in Recyclerview
+        DividerItemDecoration decoration = new DividerItemDecoration(TasksActivity.this, DividerItemDecoration.VERTICAL);
+        my_rview.addItemDecoration(decoration);
+        decoration.setDrawable(getResources().getDrawable(R.drawable.divider));
+
         my_adapter = new TaskAdapter(this, list);
+        my_rview.setAdapter(my_adapter);
         retrieve();
 
         //Method for enabling clicking on navigation view's options, from activity_main.xml
@@ -194,10 +202,10 @@ public class TasksActivity extends AppCompatActivity implements NavigationView.O
         if(result > 0){
             //Only for the text. Values from spinner objects are previously defined in strings.xml
             title.setText("");
-            Toast.makeText(TasksActivity.this, "The task has been inserted!", Toast.LENGTH_LONG).show();
+            Toast.makeText(TasksActivity.this, "The task has been inserted!", Toast.LENGTH_SHORT).show();
         }
         else{
-            Toast.makeText(TasksActivity.this, "You have blank fields left!", Toast.LENGTH_LONG).show();
+            Toast.makeText(TasksActivity.this, "You have blank fields left!", Toast.LENGTH_SHORT).show();
         }
         db.close();
 
@@ -220,6 +228,7 @@ public class TasksActivity extends AppCompatActivity implements NavigationView.O
 
             //ListTasks is a predefined java class in our project
             ListTasks l = new ListTasks(id, name, timetodo, timeleft, null);
+            l.layout_type = 1;
             list.add(l);
         }
 

@@ -8,10 +8,13 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.Button;
+
 import com.example.martinaa.cleanapp.data.TaskDBAdapter;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -49,6 +52,11 @@ public class ToBeDoneActivity extends AppCompatActivity implements NavigationVie
 
         //create Recyclerview and fill with data
         my_rview = (RecyclerView) findViewById(R.id.recycler1);
+
+        //style the border of each item in Recyclerview
+        DividerItemDecoration decoration = new DividerItemDecoration(ToBeDoneActivity.this, DividerItemDecoration.VERTICAL);
+        my_rview.addItemDecoration(decoration);
+        decoration.setDrawable(getResources().getDrawable(R.drawable.divider));
 
         my_manager = new LinearLayoutManager(this);
         my_rview.setLayoutManager(my_manager);
@@ -98,7 +106,6 @@ public class ToBeDoneActivity extends AppCompatActivity implements NavigationVie
         return true;
     }
 
-
     private void retrieve(){
         TaskDBAdapter db = new TaskDBAdapter(this);
         db.open();
@@ -109,15 +116,14 @@ public class ToBeDoneActivity extends AppCompatActivity implements NavigationVie
             int id = c.getInt(0);
             String name = c.getString(1);
             String timetodo = c.getString(2);
-            String timeleft = c.getString(3);
 
             //ListTasks is a predefined java class in our project
-            ListTasks l = new ListTasks(id, name, timetodo, timeleft, null);
+            ListTasks l = new ListTasks(id, name, timetodo);
+            l.layout_type = 2;
             list.add(l);
         }
 
         Collections.sort(list, ListTasks.BY_DATE);
-
         //if the user wrote data, send it to the adapter
         if(list.size()>0){
             my_rview.setAdapter(my_adapter);

@@ -24,7 +24,6 @@
                 android:layout_height="?attr/actionBarSize"
                 android:theme="@style/AppTheme"
                 app:floatingSearch_close_search_on_keyboard_dismiss="false"
-                app:floatingSearch_menu="@menu/menu_items"
                 app:floatingSearch_showSearchKey="false"
                 app:floatingSearch_suggestionsListAnimDuration="250">
             </com.arlib.floatingsearchview.FloatingSearchView>
@@ -51,8 +50,9 @@
             android:id="@+id/recycler"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_below="@id/sortView"
             android:scrollbars="vertical"
-            android:layout_below="@id/sortView"/>
+            />
 
         <android.support.design.widget.CoordinatorLayout
             android:layout_width="match_parent"

@@ -59,6 +59,10 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="BlueTheme" parent="Base.ThemeOverlay.AppCompat.Dark">
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    </style>
+
     <style name="EditorFieldStyle">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">match_parent</item>
@@ -76,8 +80,7 @@
 
     <style name="SpinnerStyle">
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_marginTop">@dimen/activity_margin</item>
+        <item name="android:layout_marginTop">@dimen/border_margin</item>
         <item name="android:spinnerMode">dropdown</item>
     </style>
 
@@ -87,6 +90,28 @@
         <item name="android:layout_weight">1</item>
         <item name="android:padding">@dimen/border_margin</item>
         <item name="android:spinnerMode">dropdown</item>
+    </style>
+
+    <style name="smallTexts">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">12dp</item>
+        <item name="android:paddingLeft">10dp</item>
+    </style>
+
+    <style name="bigTexts">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:textColor">@color/colorBlack</item>
+    </style>
+
+    <style name="rightButton">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_alignParentRight">true</item>
     </style>
 
 </resources>

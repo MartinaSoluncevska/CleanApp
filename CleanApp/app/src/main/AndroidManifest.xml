@@ -28,11 +28,11 @@
             android:name=".test.FourthActivity">
         </activity>
         <activity
-            android:label="CleanApp"
+            android:label="List of tasks"
             android:name=".TasksActivity">
         </activity>
         <activity
-            android:label="CleanApp"
+            android:label="Tasks to be done"
             android:name=".ToBeDoneActivity">
         </activity>
     </application>
