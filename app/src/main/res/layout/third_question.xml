@@ -41,16 +41,19 @@
             android:layout_height="wrap_content"
             style="@style/checkbox"
             android:text="Microwave"/>
+
         <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/checkbox"
             android:text="Oven"/>
+
         <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/checkbox"
             android:text="Washing machine"/>
+
         <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

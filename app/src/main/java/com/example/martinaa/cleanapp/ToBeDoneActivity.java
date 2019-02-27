@@ -24,7 +24,6 @@ import java.util.Collections;
  */
 
 public class ToBeDoneActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
-
     private RecyclerView my_rview;
     private RecyclerView.Adapter my_adapter;
     private RecyclerView.LayoutManager my_manager;

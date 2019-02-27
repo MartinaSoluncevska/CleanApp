@@ -19,21 +19,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/title"
-        android:text="What hjsawhwrbf "/>
-
-    <TextView
-        android:id="@+id/subtitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_small"
-        android:layout_below="@id/title"
-        android:text="Put your grade 1-5, where 5 is for big and 1 for small."/>
+        android:text="How many hours per day do you spend cleaning? "/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_below="@id/subtitle"
+        android:layout_below="@id/title"
         android:paddingTop="50dp">
 
         <Button android:id="@+id/btn5"

@@ -19,7 +19,6 @@ public class ThirdActivity extends Activity implements View.OnClickListener{
         setContentView(R.layout.second_question);
         Button one, two, three, four, five;
 
-
         one = (Button) findViewById(R.id.btn1);
         one.setOnClickListener(this);
         two = (Button) findViewById(R.id.btn2);
@@ -34,7 +33,6 @@ public class ThirdActivity extends Activity implements View.OnClickListener{
 
     @Override
     public void onClick(View view) {
-
         if(view.getId() == R.id.btn1
                 || view.getId() == R.id.btn2
                 || view.getId() == R.id.btn3

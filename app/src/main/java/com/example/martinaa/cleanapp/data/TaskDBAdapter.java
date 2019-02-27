@@ -48,11 +48,11 @@ public class TaskDBAdapter {
 
         try{
             ContentValues contentValues = new ContentValues();
-            contentValues.put(TaskHelper.Tasks.COLUMN_TASK_NAME, name);
-            contentValues.put(TaskHelper.Tasks.COLUMN_TASK_TIME_TO_DO, timetodo);
-            contentValues.put(TaskHelper.Tasks.COLUMN_TASK_TIME_LEFT, timeleft);
+            contentValues.put(Tasks.COLUMN_TASK_NAME, name);
+            contentValues.put(Tasks.COLUMN_TASK_TIME_TO_DO, timetodo);
+            contentValues.put(Tasks.COLUMN_TASK_TIME_LEFT, timeleft);
 
-            return db.insert(TaskHelper.Tasks.TABLE_NAME, Tasks._ID, contentValues);
+            return db.insert(Tasks.TABLE_NAME, Tasks._ID, contentValues);
         }
         catch(SQLException e){
             e.printStackTrace();

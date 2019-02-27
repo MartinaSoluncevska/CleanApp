@@ -18,13 +18,13 @@
     </string-array>
 
     <string-array name="categories">
-        <item>All categories</item>
+        <item>All</item>
         <item>Kitchen</item>
         <item>Bathroom</item>
     </string-array>
 
     <string-array name="sort_list">
-        <item>Sort: left</item>
+        <item>Sort: </item>
         <item>days</item>
         <item>weeks</item>
         <item>months</item>

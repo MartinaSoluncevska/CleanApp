@@ -19,7 +19,6 @@ import java.util.List;
  */
 
 public class TaskAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
-
     ArrayList<ListTasks> list;
     Context context;
 
@@ -73,6 +72,8 @@ public class TaskAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
                     }
                 }
             });
+
+
         }
         else if (gholder instanceof TodoHolder){
             TodoHolder holder2 = (TodoHolder) gholder;

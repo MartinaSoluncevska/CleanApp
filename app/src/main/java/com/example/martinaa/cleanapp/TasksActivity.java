@@ -29,22 +29,28 @@ import android.widget.Switch;
 import android.widget.Toast;
 import com.example.martinaa.cleanapp.data.TaskDBAdapter;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class TasksActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
-
     EditText title;
     Spinner info, something;
 
     private RecyclerView my_rview;
     private RecyclerView.Adapter my_adapter;
+    private RecyclerView.Adapter category_adapter;
     private RecyclerView.LayoutManager my_manager;
     ArrayList<ListTasks> list = new ArrayList<>();
+    ArrayList<ListTasks> filteredList = new ArrayList<ListTasks>();
 
     private DrawerLayout my_layout;
     private ActionBarDrawerToggle my_toggle;
     Toolbar my_toolbar = null;
     NavigationView nv = null;
     Switch my_switch;
+
+    Spinner spinnerCategory;
+    Spinner spinnerDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -85,6 +91,45 @@ public class TasksActivity extends AppCompatActivity implements NavigationView.O
         my_adapter = new TaskAdapter(this, list);
         my_rview.setAdapter(my_adapter);
         retrieve();
+
+        //sort
+        spinnerCategory = (Spinner) findViewById(R.id.spinner1);
+        spinnerDate = (Spinner) findViewById(R.id.spinner2);
+        category_adapter = new TaskAdapter(TasksActivity.this, filteredList);
+
+        spinnerCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                switch(position){
+                    case 0:
+                        my_rview.setAdapter(my_adapter);
+                        break;
+                    case 1:
+                        filteredList.clear();
+                        for(ListTasks l : list){
+                            if(l.bigtext.equals("wash dishes")){
+                                filteredList.add(l);
+                            }
+                        }
+                        my_rview.setAdapter(category_adapter);
+                        break;
+                    case 2:
+                        filteredList.clear();
+                        for(ListTasks l1 : list){
+                            if(l1.bigtext.equals("vacuum") || l1.bigtext.equals("v")){
+                                filteredList.add(l1);
+                            }
+                        }
+                        my_rview.setAdapter(category_adapter);
+                        break;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                //do nothing
+            }
+        });
 
         //Method for enabling clicking on navigation view's options, from activity_main.xml
         nv = (NavigationView) findViewById(R.id.nav_view);
@@ -177,6 +222,7 @@ public class TasksActivity extends AppCompatActivity implements NavigationView.O
             @Override
             public void onClick(View v) {
                 addData(title.getText().toString(), something.getSelectedItem().toString().trim(), info.getSelectedItem().toString().trim());
+                d.dismiss();
             }
         });
 
