@@ -35,11 +35,4 @@ public class ListTasks implements Serializable{
     public void setSelected(boolean selected) {
         this.isChecked = selected;
     }
-
-    public static final Comparator<ListTasks> BY_DATE = new Comparator<ListTasks>() {
-        @Override
-        public int compare(ListTasks o1, ListTasks o2) {
-            return o1.smalltext.compareTo(o2.smalltext);
-        }
-    };
 }

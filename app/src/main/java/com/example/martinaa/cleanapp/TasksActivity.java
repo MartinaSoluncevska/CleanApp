@@ -17,6 +17,7 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
@@ -28,9 +29,13 @@ import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.Toast;
 import com.example.martinaa.cleanapp.data.TaskDBAdapter;
+import com.example.martinaa.cleanapp.data.TaskHelper;
+
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.stream.Collectors;
 
 public class TasksActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     EditText title;
@@ -40,8 +45,13 @@ public class TasksActivity extends AppCompatActivity implements NavigationView.O
     private RecyclerView.Adapter my_adapter;
     private RecyclerView.Adapter category_adapter;
     private RecyclerView.LayoutManager my_manager;
+
     ArrayList<ListTasks> list = new ArrayList<>();
     ArrayList<ListTasks> filteredList = new ArrayList<ListTasks>();
+    ArrayList<ListTasks> sortedList = new ArrayList<ListTasks>();
+
+    private int PRIORITY_ONE;
+    private int PRIORITY_TWO;
 
     private DrawerLayout my_layout;
     private ActionBarDrawerToggle my_toggle;
@@ -100,35 +110,39 @@ public class TasksActivity extends AppCompatActivity implements NavigationView.O
         spinnerCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                switch(position){
+                sortByCategory(position);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) { }
+        });
+
+        spinnerDate.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                switch (i){
                     case 0:
-                        my_rview.setAdapter(my_adapter);
-                        break;
+                        Log.i("TasksActivity", "All tasks are being shown");
                     case 1:
-                        filteredList.clear();
-                        for(ListTasks l : list){
-                            if(l.bigtext.equals("wash dishes")){
-                                filteredList.add(l);
-                            }
-                        }
-                        my_rview.setAdapter(category_adapter);
+                        sortByDate("day");
+                        my_adapter.notifyDataSetChanged();
                         break;
                     case 2:
-                        filteredList.clear();
-                        for(ListTasks l1 : list){
-                            if(l1.bigtext.equals("vacuum") || l1.bigtext.equals("v")){
-                                filteredList.add(l1);
-                            }
-                        }
-                        my_rview.setAdapter(category_adapter);
+                        sortByDate("week");
+                        my_adapter.notifyDataSetChanged();
+                        break;
+                    case 3:
+                        sortByDate("month");
+                        my_adapter.notifyDataSetChanged();
+                        break;
+                    default:
+                        Toast.makeText(TasksActivity.this, "Unknown", Toast.LENGTH_SHORT).show();
                         break;
                 }
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                //do nothing
-            }
+            public void onNothingSelected(AdapterView<?> adapterView) { }
         });
 
         //Method for enabling clicking on navigation view's options, from activity_main.xml
@@ -143,7 +157,6 @@ public class TasksActivity extends AppCompatActivity implements NavigationView.O
         }
         return super.onOptionsItemSelected(item);
     }
-
 
     //Handler for different activities which should start when choosing some from the navigation drawer.
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -171,6 +184,62 @@ public class TasksActivity extends AppCompatActivity implements NavigationView.O
 
         my_layout.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void sortByDate(final String condition){
+        Collections.sort(list, Collections.reverseOrder(new Comparator<ListTasks>() {
+            @Override
+            public int compare(ListTasks t1, ListTasks t2) {
+                if(t1.smalltext.contains(condition)){
+                    PRIORITY_ONE = 1;
+                } else {
+                    PRIORITY_ONE = 0;
+                }
+
+                if(t2.smalltext.contains(condition)) {
+                    PRIORITY_TWO = 1;
+                }else {
+                    PRIORITY_TWO = 0;
+                }
+
+                if(PRIORITY_ONE == PRIORITY_TWO){
+                    return 0;
+                } else if (PRIORITY_ONE > PRIORITY_TWO) {
+                    return 1;
+                } else {
+                    return -1;
+                }
+            }
+        }));
+    }
+
+    private void sortByCategory(int i){
+        switch(i){
+            case 0:
+                my_rview.setAdapter(my_adapter);
+                break;
+            case 1:
+                filteredList.clear();
+                for(ListTasks l : list){
+                    if(l.bigtext.equals("wash dishes")){
+                        filteredList.add(l);
+                    }
+                }
+                my_rview.setAdapter(category_adapter);
+                break;
+            case 2:
+                filteredList.clear();
+                for(ListTasks l1 : list){
+                    if(l1.bigtext.equals("vacuum") || l1.bigtext.equals("v")){
+                        filteredList.add(l1);
+                    }
+                }
+                my_rview.setAdapter(category_adapter);
+                break;
+            default:
+                Toast.makeText(TasksActivity.this, "Unknown", Toast.LENGTH_SHORT).show();
+                break;
+        }
     }
 
     //Dialog for adding new tasks. which opens when click on FAB button

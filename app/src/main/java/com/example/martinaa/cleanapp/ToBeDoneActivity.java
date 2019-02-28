@@ -122,7 +122,6 @@ public class ToBeDoneActivity extends AppCompatActivity implements NavigationVie
             list.add(l);
         }
 
-        Collections.sort(list, ListTasks.BY_DATE);
         //if the user wrote data, send it to the adapter
         if(list.size()>0){
             my_rview.setAdapter(my_adapter);
